@@ -41,7 +41,7 @@ if wanthelp:
 	print("-f input file")
 	print("-c number prev chars [Default 8]")
 	print("-g number of chars to generate [Default 1050]")
-	print("-w number of chars to generate warmup [Default 1050]")
+	print("-w number of chars to generate warmup [Default 1035]")
 	print("-e number of training epochs [Default 1]")
 	quit()
 
@@ -58,7 +58,7 @@ if not n_chars:
 if not n_generate:
 	n_generate = 1050
 if not n_warmup:
-	n_warmup = 1050
+	n_warmup = 1035
 if not epochs:
 	epochs = 1
 
