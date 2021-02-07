@@ -1,5 +1,5 @@
 # markov chain text generator
-#rudimentary sequence modeling
+#"a very rudimentary introduction to sequence modeling"
 
 import sys
 import numpy
@@ -22,15 +22,11 @@ def parse(arg, args):
 
 def download(url):
 	import wget
-	filename = default_input_url.split("/")[-1]
-	if not path.exists(filename):
-		return wget.download(url)
-	else:
-		return filename
+	return wget.download(url)
 
 	
 url = parse("-u", sys.argv)
-if not url:
+if url == False:
 	filename = parse("-f", sys.argv)
 n_chars = int(parse("-c", sys.argv))
 n_generate = int(parse("-g", sys.argv))
@@ -47,12 +43,14 @@ if wanthelp:
 	print("-g number of chars to generate [Default 10000]")
 	print("-w number of chars to generate warmup [Default 250]")
 	print("-e number of training epochs [Default 1]")
-
 	quit()
 
 #set default hyperparameters
-if not url:
-	filename = download(default_input_url)
+print(url)
+if url == False:
+	filename = default_input_url.split("/")[-1]
+	if not path.exists(filename):
+		filename = download(default_input_url)
 else:
 	filename = download(url)
 
