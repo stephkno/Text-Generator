@@ -144,7 +144,6 @@ def predict():
 		dist.append(d/dist_o.sum())
 
 	#sample letter from distribution
-	print(len(dist))
 	letter = numpy.random.choice(alphabet, p=dist)
 
 	#print letter, update read head
