@@ -1,4 +1,4 @@
-# markov chain text generator
+#markov chain text generator
 #a rudimentary intro to sequence modeling
 #python3
 
