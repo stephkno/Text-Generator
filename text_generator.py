@@ -1,5 +1,5 @@
 # markov chain text generator
-#rudimentary intro to sequence modeling
+#rudimentary sequence modeling
 
 import sys
 import numpy
