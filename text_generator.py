@@ -63,7 +63,7 @@ if not n_warmup:
 if not epochs:
 	epochs = 1
 
-#parse file
+
 # open file
 print("\nReading file \"{}\"...".format(filename))
 
