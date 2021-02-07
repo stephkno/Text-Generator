@@ -40,8 +40,8 @@ if wanthelp:
 	print("-u input url [Default hitchhiker's guide to the galaxy]")
 	print("-f input file")
 	print("-c number prev chars [Default 8]")
-	print("-g number of chars to generate [Default 10000]")
-	print("-w number of chars to generate warmup [Default 250]")
+	print("-g number of chars to generate [Default 1050]")
+	print("-w number of chars to generate warmup [Default 1050]")
 	print("-e number of training epochs [Default 1]")
 	quit()
 
@@ -56,9 +56,9 @@ else:
 if not n_chars:
 	n_chars = 8
 if not n_generate:
-	n_generate = 1000
+	n_generate = 1050
 if not n_warmup:
-	n_warmup = 900
+	n_warmup = 1050
 if not epochs:
 	epochs = 1
 
@@ -167,7 +167,7 @@ while True:
 	#predict text
 	for i in range(n_generate):
 		if c == n_warmup:
-			print(" ....... ")
+			print(" <start> ")
 		if c > n_warmup:
 			predict()
 		else:
