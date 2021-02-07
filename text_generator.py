@@ -143,13 +143,14 @@ def predict():
 	for d in dist_o:
 		dist.append(d/dist_o.sum())
 
-		#sample letter from distribution
-		letter = numpy.random.choice(alphabet, p=dist)
+	#sample letter from distribution
+	print(len(dist))
+	letter = numpy.random.choice(alphabet, p=dist)
 
-		#print letter, update read head
-		print(letter, end="")
-		read.pop(0)
-		read.append(letter)
+	#print letter, update read head
+	print(letter, end="")
+	read.pop(0)
+	read.append(letter)
 
 def warmup(c):
 	letter = read.pop(0)
