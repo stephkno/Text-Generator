@@ -69,7 +69,7 @@ print("\nReading file \"{}\"...".format(filename))
 
 with open(filename, "r") as f:
 	# reads all lines and removes non alphabet words
-	book = f.read()
+	book = f.read().split(" ")
 
 length = len(book)
 i = 0
@@ -87,8 +87,9 @@ for l in list(book):
 		alphabet.append(l)
 
 length = len(book)
-alphabet.sort()
 
+#alphabet in order
+alphabet.sort()
 print("\nAlphabet size:", len(alphabet))
 
 i = n_chars
@@ -96,29 +97,29 @@ read = [book[i] for i in range(n_chars)]
 
 print("Learning text...")
 
-#iterate text for n_epochs
+#learning text for n_epochs
 for i in range(epochs):
 	print("\nEpoch {}...".format(i))
 
 	while i < len(book)-1:
-
 		letter = book[i+1]
 		string = ''.join(read)
 
 		#read state
 		if string in memory:
-			#if state exists, increment letter probability
+			#if state exists, increment next symbol probability
 			tmp = memory[string]
 			tmp[alphabet.index(letter)] = tmp[alphabet.index(letter)] + 1.0
 		else:
-			#add new state
+			#add new state if never seen
+			#create vector of zeros
 			dist = [0.0 for _ in range(len(alphabet))]
 			dist[alphabet.index(letter)] = 1.0
 			memory[string] = dist
 
-		#remove letter from read head
+		#remove old letter from read buffer
 		read.pop(0)
-		#add next letter to read head
+		#add next letter to read buffer
 		read.append(letter)
 
 		#increment letter counter
@@ -146,15 +147,15 @@ def predict():
 	#sample letter from distribution
 	letter = numpy.random.choice(alphabet, p=dist)
 
-	#print letter, update read head
-	print(letter, end="")
+	#print letter, update read buffer
+	print(letter, end=" ")
 	read.pop(0)
 	read.append(letter)
 
 def warmup(c):
 	letter = read.pop(0)
 	read.append(book[c])
-	print(letter, end="")
+	print(letter, end=" ")
 
 c = n_chars
 
