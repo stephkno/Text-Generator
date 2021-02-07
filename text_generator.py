@@ -148,14 +148,14 @@ def predict():
 	letter = numpy.random.choice(alphabet, p=dist)
 
 	#print letter, update read buffer
-	print(letter, end=" ")
+	print(letter, end="")
 	read.pop(0)
 	read.append(letter)
 
 def warmup(c):
 	letter = read.pop(0)
 	read.append(book[c])
-	print(letter, end=" ")
+	print(letter, end="")
 
 c = n_chars
 
