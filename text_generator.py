@@ -69,7 +69,7 @@ print("\nReading file \"{}\"...".format(filename))
 
 with open(filename, "r") as f:
 	# reads all lines and removes non alphabet words
-	book = f.read().split(" ")
+	book = f.read()
 
 length = len(book)
 i = 0
