@@ -46,7 +46,6 @@ if wanthelp:
 	quit()
 
 #set default hyperparameters
-print(url)
 if url == False:
 	filename = default_input_url.split("/")[-1]
 	if not path.exists(filename):
